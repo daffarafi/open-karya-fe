@@ -16,9 +16,17 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@icons": ["src/components/icons"],
+      "@contexts": ["src/components/contexts"],
+      "@elements": ["src/components/elements"],
+      "@hooks": ["src/components/hooks"],
+      "@modules": ["src/components/modules"],
+      "@ssr": ["src/components/ssr"],
+      "@utils": ["src/components/utils"],
+      "@pages/*": ["src/pages/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "extends": "@tsconfig/next/tsconfig.json"
 }

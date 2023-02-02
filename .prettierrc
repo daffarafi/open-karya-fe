@@ -1,0 +1,22 @@
+{
+  "endOfLine": "lf",
+  "printWidth": 80,
+  "tabWidth": 2,
+  "overrides": [
+    {
+      "files": "*.css",
+      "options": {
+        "tabWidth": 4
+      }
+    },
+    {
+      "files": "*.tsx",
+      "options": {
+        "tabWidth": 4
+      }
+    }
+  ],
+  "trailingComma": "es5",
+  "singleQuote": true,
+  "semi": false
+}
