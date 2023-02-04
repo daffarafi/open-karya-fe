@@ -1,3 +1,4 @@
+import { useAuthContext } from '@contexts'
 import { CustomButton } from '@elements'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -7,6 +8,7 @@ export const LoginModule: React.FC = () => {
     const router = useRouter()
     const [loginForm, setLoginForm] = useState({ email: '', password: '' })
     const [buttonLoadingState, setButtonLoadingState] = useState(false)
+    const { setUser } = useAuthContext()
     const loginHandler = async () => {
         try {
             setButtonLoadingState(true)
@@ -36,6 +38,8 @@ export const LoginModule: React.FC = () => {
             if (statusCode !== 200) {
                 throw new Error(message)
             }
+
+            setUser(user)
             localStorage.setItem('user', JSON.stringify(user))
             localStorage.setItem('at', JSON.stringify(accessToken))
 
