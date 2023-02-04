@@ -3,13 +3,19 @@ import { navLinks } from './constant'
 import Link from 'next/link'
 import { OpenKaryaLogo } from '@icons'
 import { CustomButton } from '@elements'
+// import { UserInterface } from 'src/components/contexts/AuthContext/interface'
+import { useRouter } from 'next/router'
+import { useAuthContext } from '@contexts'
 
 export const Navbar: React.FC = () => {
+    const router = useRouter()
     const [navbarState, setNavbarState] = useState({
         isCollapsed: true,
         isTransparent: true,
         isColorChangeDisabled: false,
     })
+    // const [user, setUser] = useState<UserInterface | null>(null)
+    const { user, setUser } = useAuthContext()
 
     const toggleNavbar = () => {
         setNavbarState((states) => ({
@@ -25,8 +31,26 @@ export const Navbar: React.FC = () => {
         }))
     }
 
+    const isNavbarColorDisable = () => {
+        const pathName = window.location.pathname
+        if (pathName === '/') {
+            return false
+        }
+        const [page, param, isEdit] = pathName.split('/').filter(Boolean)
+        if (page === 'karya' && param !== undefined && isEdit === undefined) {
+            return false
+        }
+        return true
+    }
+
     const toggleNavbarColor = () => {
-        if (navbarState.isColorChangeDisabled) return
+        if (isNavbarColorDisable()) {
+            setNavbarState((states) => ({
+                ...states,
+                isTransparent: false,
+            }))
+            return
+        }
         if (window.scrollY >= 100) {
             setNavbarState((states) => ({
                 ...states,
@@ -40,21 +64,27 @@ export const Navbar: React.FC = () => {
         }
     }
 
+    const handleLogout = () => {
+        localStorage.removeItem('user')
+        localStorage.removeItem('at')
+        setUser(null)
+    }
+
+    const getFullName = () => {
+        const fullName = `${user?.firstName} ${user?.lastName}`
+        return fullName.length >= 10 ? `${fullName.slice(0, 10)}...` : fullName
+    }
+
     useEffect(() => {
-        if (window.location.pathname !== '/') {
-            setNavbarState((states) => ({
-                ...states,
-                isColorChangeDisabled: false,
-            }))
-        } else {
-            setNavbarState((states) => ({
-                ...states,
-                isColorChangeDisabled: true,
-            }))
-        }
+        const user = localStorage.getItem('user') || '{}'
+        const userObj = JSON.parse(user)
+        setUser(user !== '{}' ? userObj : null)
+        window.addEventListener('scroll', toggleNavbarColor)
     }, [])
 
-    window.addEventListener('scroll', toggleNavbarColor)
+    useEffect(() => {
+        toggleNavbarColor()
+    }, [router.route])
 
     return (
         <nav
@@ -119,9 +149,44 @@ export const Navbar: React.FC = () => {
                     </div>
                 </div>
                 <div className="nav-profile flex flex-row-reverse">
-                    <Link href="/auth/login">
-                        <CustomButton variant="secondary">LOGIN</CustomButton>
-                    </Link>
+                    {user ? (
+                        <div className="w-10 h-10 bg-gray-500 rounded-full flex justify-center items-center relative group">
+                            <span className="text-white text-xl ">
+                                {user.firstName?.charAt(0).toLocaleUpperCase()}
+                                {user.lastName?.charAt(0).toLocaleUpperCase()}
+                            </span>
+                            <div className="bg-white drop-shadow-md rounded-lg absolute top-full mt-4 py-2 right-0 flex-col items-center hidden group-hover:flex">
+                                <div className="absolute right-3 bottom-full border-8 border-b-white border-t-transparent border-l-transparent border-r-transparent "></div>
+                                <div className="text-center text-xl ">
+                                    <Link href={`/user/${user.id}`}>
+                                        {getFullName()}
+                                    </Link>
+                                </div>
+                                <div className="w-4/5 h-[0.5px] bg-gray-500"></div>
+                                <div className="w-full">
+                                    <Link href={'/upload'}>
+                                        <CustomButton isFullWidth>
+                                            UNGGAH KARYA
+                                        </CustomButton>
+                                    </Link>
+                                </div>
+                                <div className="w-full">
+                                    <CustomButton
+                                        isFullWidth
+                                        onClick={handleLogout}
+                                    >
+                                        LOGOUT
+                                    </CustomButton>
+                                </div>
+                            </div>
+                        </div>
+                    ) : (
+                        <Link href="/login">
+                            <CustomButton variant="secondary">
+                                LOGIN
+                            </CustomButton>
+                        </Link>
+                    )}
                 </div>
             </div>
         </nav>

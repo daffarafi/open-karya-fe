@@ -4,7 +4,7 @@ import React from 'react'
 
 export const PopularTags: React.FC = () => (
     <section className="container">
-        <h2 className="mb-4">Popular Tags</h2>
+        <h2 className="mb-4 ">Popular Tags</h2>
         <div className="grid grid-rows-3 md:grid-cols-2 md:grid-rows-2 gap-4">
             <div className="relative min-h-[15rem] flex flex-row-reverse items-center">
                 <Image

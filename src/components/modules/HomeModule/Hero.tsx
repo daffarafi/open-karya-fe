@@ -24,8 +24,11 @@ export const Hero: React.FC = () => (
                     <Link href={'/auth/signup'}>
                         <CustomButton variant="primary">BERGABUNG</CustomButton>
                     </Link>
-                    <Link href={'/karya'} className="flex items-center gap-3">
-                        <span className="text-white font-semibold">
+                    <Link
+                        href={'/karya'}
+                        className="flex items-center gap-3 group"
+                    >
+                        <span className="text-white font-semibold group-hover:mr-3 transition-all">
                             LIHAT KARYA
                         </span>
                         <Arrowright />

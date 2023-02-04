@@ -8,13 +8,22 @@ export const CustomButton: React.FC<ButtonProps> = ({
     onClick,
     children,
 }) => {
-    const getStyleByVariant = () => {
-        let style = 'block px-4 py-[0.1rem] font-semibold '
+    const getButtonStyle = () => {
+        let style =
+            'block px-4 py-[0.1rem] font-semibold whitespace-nowrap transition-all duration-150 '
         if (variant === 'primary') {
-            style += 'text-primary bg-white border-2 rounded-full border-white'
+            style +=
+                'text-primary bg-white border-2 rounded-full border-white hover:bg-primary hover:text-white '
         } else if (variant === 'secondary') {
-            style += 'text-white border-2 rounded-full border-white'
+            style +=
+                'text-white border-2 rounded-full border-white hover:bg-white hover:text-primary '
         } else {
+            style +=
+                'text-white border-2 bg-primary rounded-full border-white hover:bg-white hover:text-primary '
+        }
+
+        if (isFullWidth) {
+            style += ' w-full '
         }
 
         return style
@@ -24,7 +33,7 @@ export const CustomButton: React.FC<ButtonProps> = ({
         <button
             onClick={onClick}
             disabled={isDisabled}
-            className={getStyleByVariant()}
+            className={getButtonStyle()}
         >
             {children}
         </button>

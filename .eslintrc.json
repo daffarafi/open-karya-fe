@@ -11,7 +11,8 @@
   "rules": {
     "require-jsdoc": "off",
     "new-cap": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "no-console": "warn"
   },
   "settings": { "react": { "version": "detect" } }
 }
