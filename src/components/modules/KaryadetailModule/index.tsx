@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { UserInterface } from 'src/components/contexts/AuthContext/interface'
 import { KaryaInterace } from './interface'
 
-export const KaryaDetailModule: React.FC = () => {
+export const KaryadetailModule: React.FC = () => {
     const router = useRouter()
     const [loadingState, setLoadingState] = useState(true)
     const [scrollState, setScrollState] = useState(false)
