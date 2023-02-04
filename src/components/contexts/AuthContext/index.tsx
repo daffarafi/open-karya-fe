@@ -17,18 +17,15 @@ export const AuthContextProvider: React.FC<AuthContextProviderProps> = ({
     const [loadingState, setLoadingState] = useState(false)
 
     const login = () => {
-        console.log('login!')
         setLoadingState(true)
         router.push('/')
     }
 
     const validateJwtToken = (token: string | undefined) => {
-        console.log(user)
         // console.log('validate!')
         // const rawToken = (token as string).includes('Bearer')
         //     ? (token as string).split(' ')[1]
         //     : (token as string)
-
         // const base64Url = rawToken.split('.')[1]
         // const base64 = base64Url.replace('-', '+').replace('_', '/')
         // console.log(JSON.parse(window.atob(base64)))
