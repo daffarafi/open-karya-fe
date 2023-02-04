@@ -2,10 +2,11 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { Footer, Navbar } from '@elements'
+import { AuthContextProvider } from '@contexts'
 
 export default function App({ Component, pageProps }: AppProps) {
     return (
-        <>
+        <AuthContextProvider>
             <Head>
                 <title>Open Karya | By Dapa</title>
                 <meta
@@ -19,10 +20,11 @@ export default function App({ Component, pageProps }: AppProps) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar />
-            <main className="w-full min-h-screen overflow-x-hidden flex flex-col gap-20 mb-20">
+            <main className="w-full min-h-screen  flex flex-col gap-20">
+                {/* overflow-x-hidden */}
                 <Component {...pageProps} />
             </main>
             <Footer />
-        </>
+        </AuthContextProvider>
     )
 }

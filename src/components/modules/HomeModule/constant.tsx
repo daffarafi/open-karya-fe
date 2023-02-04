@@ -25,7 +25,7 @@ export const tags = [
         category: 'cyber-security',
         logo: <Cybersecurity />,
     },
-    { title: 'Teknologi Ar', category: 'teknologi-ar', logo: <Ar /> },
+    { title: 'Teknologi AR', category: 'teknologi-ar', logo: <Ar /> },
     { title: 'Blockchain', category: 'blockchain', logo: <Blockchain /> },
     { title: 'IoT', category: 'internet-of-things', logo: <Iot /> },
 ]

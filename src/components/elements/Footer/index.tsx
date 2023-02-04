@@ -5,7 +5,7 @@ import { socialMedia } from './constant'
 
 export const Footer: React.FC = () => {
     return (
-        <div className="w-full bg-primary ">
+        <div className="w-full bg-secondary ">
             <div className="container py-7">
                 <div className="flex justify-center md:justify-between items-center flex-wrap gap-4 md:gap-8 ">
                     <div className="flex gap-x-10 gap-y-4 items-center flex-wrap justify-center">
