@@ -1,7 +1,7 @@
 import React from 'react'
-import { KaryaDetailModule } from '@modules'
+import { KaryadetailModule } from '@modules'
 import type { NextPage } from 'next'
 
-const KaryaDetail: NextPage = () => <KaryaDetailModule />
+const KaryaDetail: NextPage = () => <KaryadetailModule />
 
 export default KaryaDetail
