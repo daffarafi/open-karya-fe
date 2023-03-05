@@ -1,4 +1,4 @@
-import { CustomButton } from '@elements'
+import { Button } from '@elements'
 import Image from 'next/image'
 import React from 'react'
 
@@ -18,7 +18,7 @@ export const PopularTags: React.FC = () => (
                 <div className="relative p-6 flex flex-col gap-2">
                     <h4 className="text-white text-right">Teknologi Website</h4>
                     <div className="flex flex-row-reverse">
-                        <CustomButton>SELENGKAPNYA</CustomButton>
+                        <Button>SELENGKAPNYA</Button>
                     </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@ export const PopularTags: React.FC = () => (
                 <div className="relative p-6 flex flex-col gap-2">
                     <h4 className="text-white text-right">Kecerdasan Buatan</h4>
                     <div className="flex flex-row-reverse">
-                        <CustomButton>SELENGKAPNYA</CustomButton>
+                        <Button>SELENGKAPNYA</Button>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@ export const PopularTags: React.FC = () => (
                 <div className="relative p-6 flex flex-col gap-2">
                     <h4 className="text-white text-right">Robotika</h4>
                     <div className="flex flex-row-reverse">
-                        <CustomButton>SELENGKAPNYA</CustomButton>
+                        <Button>SELENGKAPNYA</Button>
                     </div>
                 </div>
             </div>

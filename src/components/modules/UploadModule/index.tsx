@@ -1,4 +1,4 @@
-import { CustomButton } from '@elements'
+import { Button } from '@elements'
 import { Noimage } from '@icons'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
@@ -61,7 +61,7 @@ export const UploadModule: React.FC = () => {
 
             return
         } catch (e) {
-            alert(e)
+            console.log(e)
         } finally {
             setButtonLoadingState(false)
         }
@@ -104,7 +104,7 @@ export const UploadModule: React.FC = () => {
 
             return
         } catch (e) {
-            alert(e)
+            console.log(e)
         } finally {
             setButtonLoadingState(false)
         }
@@ -163,7 +163,7 @@ export const UploadModule: React.FC = () => {
                 setTagsValue((tags) => ({ ...tags, [tag]: true }))
             })
         } catch (e) {
-            alert(e)
+            console.log(e)
         } finally {
             setFormLoadingState(false)
         }
@@ -233,26 +233,26 @@ export const UploadModule: React.FC = () => {
                                 ) : (
                                     <>
                                         {isEditForm ? (
-                                            <CustomButton
+                                            <Button
                                                 variant="tertiary"
                                                 onClick={editButtonHandler}
                                             >
                                                 Edit
-                                            </CustomButton>
+                                            </Button>
                                         ) : (
-                                            <CustomButton
+                                            <Button
                                                 variant="tertiary"
                                                 onClick={sendButtonHandler}
                                             >
                                                 Selesai
-                                            </CustomButton>
+                                            </Button>
                                         )}
-                                        <CustomButton
+                                        <Button
                                             variant="primary"
                                             onClick={cancelButtonHandler}
                                         >
                                             Batal
-                                        </CustomButton>
+                                        </Button>
                                     </>
                                 )}
                             </div>
@@ -286,7 +286,10 @@ export const UploadModule: React.FC = () => {
                             <div className="flex flex-col h-full">
                                 <label htmlFor="">Tambahkan Gambar</label>
                                 <div className="bg-gray-100 w-full h-full flex justify-center items-center py-4">
-                                    <Noimage></Noimage>
+                                    <Noimage
+                                        size="w-14 h-14"
+                                        fill="fill-muted"
+                                    ></Noimage>
                                 </div>
                             </div>
                         )}

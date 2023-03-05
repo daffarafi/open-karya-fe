@@ -17,7 +17,7 @@ export const KaryaModule: React.FC = () => {
             }
             setKarya(karya)
         } catch (e) {
-            alert(e)
+            console.log(e)
         } finally {
             setLoadingState(false)
         }
@@ -75,7 +75,7 @@ export const KaryaModule: React.FC = () => {
             </div>
             {/* <div>
                 <input type="text" />
-                <CustomButton></CustomButton>
+                <Button></Button>
             </div> */}
             {renderKarya()}
         </section>

@@ -20,8 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar />
-            <main className="w-full min-h-screen  flex flex-col gap-20">
-                {/* overflow-x-hidden */}
+            <main className="w-full min-h-screen bg-landing-bg flex flex-col gap-20">
                 <Component {...pageProps} />
             </main>
             <Footer />
