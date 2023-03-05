@@ -34,7 +34,7 @@ export const KaryadetailModule: React.FC = () => {
 
             setKaryaDetail(karya)
         } catch (e) {
-            alert(e)
+            console.log(e)
         } finally {
             setLoadingState(false)
         }
@@ -74,7 +74,7 @@ export const KaryadetailModule: React.FC = () => {
             router.push('/karya')
             return response
         } catch (e) {
-            alert(e)
+            console.log(e)
         }
     }
 

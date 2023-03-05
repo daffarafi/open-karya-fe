@@ -20,7 +20,7 @@ export const KaryaList: React.FC = () => {
 
             setKarya(karya)
         } catch (e) {
-            alert(e)
+            console.log(e)
         } finally {
             setLoadingState(false)
         }

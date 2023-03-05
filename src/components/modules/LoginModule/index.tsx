@@ -1,5 +1,5 @@
 import { useAuthContext } from '@contexts'
-import { CustomButton } from '@elements'
+import { Button } from '@elements'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
@@ -45,7 +45,7 @@ export const LoginModule: React.FC = () => {
 
             router.push('/')
         } catch (e) {
-            alert(e)
+            console.log(e)
         } finally {
             setButtonLoadingState(false)
         }
@@ -96,9 +96,9 @@ export const LoginModule: React.FC = () => {
                         <div className="w-5 aspect-square rounded-full border-2 border-primary border-x-transparent animate-spin"></div>
                     </div>
                 ) : (
-                    <CustomButton variant="tertiary" onClick={loginHandler}>
+                    <Button variant="tertiary" onClick={loginHandler}>
                         <p className="m-2">Login</p>
-                    </CustomButton>
+                    </Button>
                 )}
                 <div>
                     <p>

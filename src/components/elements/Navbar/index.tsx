@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { navLinks } from './constant'
 import Link from 'next/link'
 import { OpenKaryaLogo } from '@icons'
-import { CustomButton } from '@elements'
+import { Button } from '@elements'
 // import { UserInterface } from 'src/components/contexts/AuthContext/interface'
 import { useRouter } from 'next/router'
 import { useAuthContext } from '@contexts'
@@ -88,7 +88,7 @@ export const Navbar: React.FC = () => {
 
     return (
         <nav
-            className={`transition-all fixed z-10 top-0 left-0 w-full ${
+            className={`transition-all fixed z-20 top-0 left-0 w-full ${
                 navbarState.isTransparent
                     ? 'bg-transparent border-transparent'
                     : 'bg-secondary border-b-[1px] border-white shadow-xl'
@@ -165,26 +165,21 @@ export const Navbar: React.FC = () => {
                                 <div className="w-4/5 h-[0.5px] bg-gray-500"></div>
                                 <div className="w-full">
                                     <Link href={'/upload'}>
-                                        <CustomButton isFullWidth>
+                                        <Button isFullWidth>
                                             UNGGAH KARYA
-                                        </CustomButton>
+                                        </Button>
                                     </Link>
                                 </div>
                                 <div className="w-full">
-                                    <CustomButton
-                                        isFullWidth
-                                        onClick={handleLogout}
-                                    >
+                                    <Button isFullWidth onClick={handleLogout}>
                                         LOGOUT
-                                    </CustomButton>
+                                    </Button>
                                 </div>
                             </div>
                         </div>
                     ) : (
                         <Link href="/login">
-                            <CustomButton variant="secondary">
-                                LOGIN
-                            </CustomButton>
+                            <Button variant="secondary">LOGIN</Button>
                         </Link>
                     )}
                 </div>

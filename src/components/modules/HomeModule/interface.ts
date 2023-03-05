@@ -1,1 +1,3 @@
-export interface props {}
+export interface SlideProps {
+  isActive: boolean
+}
