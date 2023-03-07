@@ -19,3 +19,9 @@
         @apply font-semibold text-2xl sm:text-3xl lg:text-4xl;
     }
 }
+
+@layer utilities {
+    .pause {
+      animation-play-state: paused;
+    }
+ }
