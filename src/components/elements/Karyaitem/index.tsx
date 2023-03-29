@@ -21,7 +21,7 @@ export const Karyaitem: React.FC<KaryaItemProps> = ({
         >
             <div className="h-[70%] w-full absolute border-b-2 border-primary rounded-2xl overflow-hidden group-hover:h-full transition-all">
                 <Image
-                    src={image}
+                    src={image || ''}
                     alt={title}
                     fill
                     className="object-cover object-center bg-gray-200 group-hover:brightness-50 transition-all"

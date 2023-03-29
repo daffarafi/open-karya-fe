@@ -8,7 +8,7 @@
     }
 
     h2 {
-        @apply text-3xl font-semibold text-primary;
+        @apply text-3xl font-semibold text-white;
     }
 
     h3 {
@@ -22,6 +22,6 @@
 
 @layer utilities {
     .pause {
-      animation-play-state: paused;
+        animation-play-state: paused;
     }
- }
+}

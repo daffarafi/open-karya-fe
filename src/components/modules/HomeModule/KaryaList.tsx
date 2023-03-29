@@ -35,7 +35,11 @@ export const KaryaList: React.FC = () => {
             )
         }
         if (karya.length === 0) {
-            return <p className="italic  text-gray-400 text-2xl">No data</p>
+            return (
+                <p className="italic  text-gray-400 text-2xl">
+                    Ups! terjadi kesalahan!
+                </p>
+            )
         } else {
             return (
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
@@ -71,7 +75,7 @@ export const KaryaList: React.FC = () => {
 
     return (
         <section className="container ">
-            <h2 className="mb-4">Karya Terbaik Minggu Ini</h2>
+            <h2 className="mb-4">Explorasi karya-karya menakjubkan! </h2>
             {renderKarya()}
         </section>
     )
